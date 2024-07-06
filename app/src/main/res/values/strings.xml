@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Погода</string>
+    
+    <!--WeahterScreen-->
+    <string name="other_parameters">Другие параметры</string>
+    <string name="forecast_by_day">Прогноз по дням</string>
+    <string name="forecast_by_hour">Прогноз по часам</string>
+    <string name="details">Подробнее</string>
+    <string name="air_quality">Качество воздуха</string>
+    <string name="sun_parameters">Параметры солнца</string>
+    <string name="data_provided">Данные предоставлены</string>
+    
+    
+    
+    <string name="wind_dir">Направление ветра</string>
+    <string name="wind_speed">Скорость ветра</string>
+    <string name="wind_gust">Порывы ветра</string>
+    <string name="pressure">Давление</string>
+    <string name="precipe">Осадки</string>
+    <string name="humidity">Влажность</string>
+    <string name="feelslike">Ощущается как</string>
+    <string name="uv">УФ</string>
+    <string name="avg_temp">Средняя температура</string>
+    <string name="chance_of_rain">Вероятность дождя</string>
+    
+    
+    <string name="co">CO</string>
+    <string name="no2">NO2</string>
+    <string name="o3">O3</string>
+    <string name="so2">SO2</string>
+    <string name="pm2_5">PM2_5</string>
+    <string name="pm10">PM10</string>
+    <string name="index">Индекс</string>
+    
+    <string name="sunrise">Рассвет</string>
+    <string name="sunset">Закат</string>
+    
+    <string name="today">Сегодня</string>
+    <string name="tomorrow">Завтра</string>
+    
+    <string name="kmh">км/ч</string>
+    
+    <!--DetailsScreen-->
+    <string name="details_screen_title">Полный прогноз</string>
+    
+    
+    <!--LocationScreen-->
+     <string name="location_screen_title">Настройка геолокации</string>
+     <string name="find_automatic">Определять автоматически</string>
+     <string name="finding_automatic">Определяется автоматически</string>
+     <string name="location_screen_info">Нажмите на + , если вы хотите добавить другую геолокацию</string>
+    
+    
+    <!--AddLocationScreen-->
+     <string name="add_location_screen_title">Поиск геолокации</string>
+     <string name="add_location_screen_info">Введите название для поиска</string>
+     <string name="get_button">Найти</string>
+     <string name="get_location_text_button">Определить самостоятельно</string>
+    
+    <!--SettingsScreen-->
+    <string name="settings_screen_title">Настройки</string>
+    <string name="unit_of_measure">Единицы измерения</string>
+    <string name="settings_text_temp">Температура</string>
+    <string name="settings_text_wind">Скорость ветра</string>
+    <string name="settings_text_pressure">Давление</string>
+    
+        <!--Temp-->
+        <string name="settings_text_temp_c">Градусы по цельсию</string>
+        <string name="settings_text_temp_f">Градуры по фарингейту</string>
+    
+        <!--Wind-->
+        <string name="settings_text_wind_mph">Мили в час</string>
+        <string name="settings_text_wind_kph">Километров в час</string>
+    
+        <!--Pressure-->
+        <string name="settings_text_pressure_mb">Миллибар</string>
+        
+    
+    
+</resources>

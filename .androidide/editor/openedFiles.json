@@ -1,0 +1,140 @@
+{
+  "allFiles": [
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/ui/settings/SettingsScreen.kt",
+      "selection": {
+        "end": {
+          "column": 77,
+          "index": 7867,
+          "line": 174
+        },
+        "start": {
+          "column": 76,
+          "index": 7866,
+          "line": 174
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/res/values/strings.xml",
+      "selection": {
+        "end": {
+          "column": 4,
+          "index": 1640,
+          "line": 45
+        },
+        "start": {
+          "column": 4,
+          "index": 1640,
+          "line": 45
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/WeatherApp.kt",
+      "selection": {
+        "end": {
+          "column": 26,
+          "index": 8498,
+          "line": 250
+        },
+        "start": {
+          "column": 26,
+          "index": 8498,
+          "line": 250
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/ui/settings/SettingsViewModel.kt",
+      "selection": {
+        "end": {
+          "column": 25,
+          "index": 1848,
+          "line": 60
+        },
+        "start": {
+          "column": 8,
+          "index": 1831,
+          "line": 60
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/data/WeatherDataStore.kt",
+      "selection": {
+        "end": {
+          "column": 65,
+          "index": 1727,
+          "line": 45
+        },
+        "start": {
+          "column": 65,
+          "index": 1727,
+          "line": 45
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/ui/weather/WeatherViewModel.kt",
+      "selection": {
+        "end": {
+          "column": 8,
+          "index": 5796,
+          "line": 197
+        },
+        "start": {
+          "column": 4,
+          "index": 5792,
+          "line": 197
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/ui/weather/WeatherScreen.kt",
+      "selection": {
+        "end": {
+          "column": 90,
+          "index": 10600,
+          "line": 273
+        },
+        "start": {
+          "column": 90,
+          "index": 10600,
+          "line": 273
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/rest/WeatherItems.kt",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        },
+        "start": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/ui/weather/DetailsScreen.kt",
+      "selection": {
+        "end": {
+          "column": 7,
+          "index": 7387,
+          "line": 171
+        },
+        "start": {
+          "column": 7,
+          "index": 7387,
+          "line": 171
+        }
+      }
+    }
+  ],
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/res/values/strings.xml"
+}

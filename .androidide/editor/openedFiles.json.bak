@@ -1,0 +1,20 @@
+{
+  "allFiles": [
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/gradle.properties",
+      "selection": {
+        "end": {
+          "column": 25,
+          "index": 456,
+          "line": 8
+        },
+        "start": {
+          "column": 25,
+          "index": 456,
+          "line": 8
+        }
+      }
+    }
+  ],
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/Погода/gradle.properties"
+}
