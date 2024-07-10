@@ -41,6 +41,11 @@
     
     <string name="kmh">км/ч</string>
     
+    <string name="if_not_location_permission">Если Вы не дали разрешение на местоположение, то Вы можете дать его в настройках</string>
+    <string name="if_you_dont_location_permission">Если Вы не хотите давать разрешение на местоположение, то Вы можете указать местоположение вручную</string>
+    <string name="write_location_button">Указать местоположение</string>
+    
+    
     <!--DetailsScreen-->
     <string name="details_screen_title">Полный прогноз</string>
     
@@ -76,6 +81,9 @@
         <!--Pressure-->
         <string name="settings_text_pressure_mb">Миллибар</string>
         
-    
+    <!--WarningDialog-->
+    <string name="ok_button">Ок</string>
+    <string name="warnint_title">Предупреждение</string>
+    <string name="warning_text">Предоставьте разрешение на определение местоположения в натройках приложения</string>
     
 </resources>

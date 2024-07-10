@@ -1,17 +1,17 @@
 {
   "allFiles": [
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/ui/settings/SettingsScreen.kt",
+      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/ui/weather/WeatherScreen.kt",
       "selection": {
         "end": {
-          "column": 77,
-          "index": 7867,
-          "line": 174
+          "column": 1,
+          "index": 15082,
+          "line": 404
         },
         "start": {
-          "column": 76,
-          "index": 7866,
-          "line": 174
+          "column": 1,
+          "index": 15082,
+          "line": 404
         }
       }
     },
@@ -19,14 +19,29 @@
       "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/res/values/strings.xml",
       "selection": {
         "end": {
-          "column": 4,
-          "index": 1640,
-          "line": 45
+          "column": 30,
+          "index": 3618,
+          "line": 86
         },
         "start": {
-          "column": 4,
-          "index": 1640,
-          "line": 45
+          "column": 18,
+          "index": 3606,
+          "line": 86
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/ui/location/AddLocationScreen.kt",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        },
+        "start": {
+          "column": 0,
+          "index": 0,
+          "line": 0
         }
       }
     },
@@ -34,79 +49,19 @@
       "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/WeatherApp.kt",
       "selection": {
         "end": {
-          "column": 26,
-          "index": 8498,
-          "line": 250
+          "column": 16,
+          "index": 9323,
+          "line": 284
         },
         "start": {
-          "column": 26,
-          "index": 8498,
-          "line": 250
+          "column": 16,
+          "index": 9323,
+          "line": 284
         }
       }
     },
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/ui/settings/SettingsViewModel.kt",
-      "selection": {
-        "end": {
-          "column": 25,
-          "index": 1848,
-          "line": 60
-        },
-        "start": {
-          "column": 8,
-          "index": 1831,
-          "line": 60
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/data/WeatherDataStore.kt",
-      "selection": {
-        "end": {
-          "column": 65,
-          "index": 1727,
-          "line": 45
-        },
-        "start": {
-          "column": 65,
-          "index": 1727,
-          "line": 45
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/ui/weather/WeatherViewModel.kt",
-      "selection": {
-        "end": {
-          "column": 8,
-          "index": 5796,
-          "line": 197
-        },
-        "start": {
-          "column": 4,
-          "index": 5792,
-          "line": 197
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/ui/weather/WeatherScreen.kt",
-      "selection": {
-        "end": {
-          "column": 90,
-          "index": 10600,
-          "line": 273
-        },
-        "start": {
-          "column": 90,
-          "index": 10600,
-          "line": 273
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/rest/WeatherItems.kt",
+      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/ui/location/LocationScreen.kt",
       "selection": {
         "end": {
           "column": 0,
@@ -117,24 +72,9 @@
           "column": 0,
           "index": 0,
           "line": 0
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/ui/weather/DetailsScreen.kt",
-      "selection": {
-        "end": {
-          "column": 7,
-          "index": 7387,
-          "line": 171
-        },
-        "start": {
-          "column": 7,
-          "index": 7387,
-          "line": 171
         }
       }
     }
   ],
-  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/res/values/strings.xml"
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/ui/location/LocationScreen.kt"
 }

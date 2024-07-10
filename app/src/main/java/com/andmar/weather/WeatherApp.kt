@@ -1,5 +1,6 @@
 package com.andmar.weather
 
+import android.content.Context
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.fadeIn
@@ -118,6 +119,7 @@ import com.andmar.weather.R
 import com.andmar.weather.ui.AppViewModelProvider
 import com.andmar.weather.ui.navigate.WeatherDestination
 import com.andmar.weather.ui.navigate.WeatherNavigateHost
+import com.andmar.weather.location.hasLocationPermission
 
 @Composable
 fun WeatherApp() {
@@ -258,4 +260,36 @@ fun ModalBottomSheetItem(
         ParameterText(itemText)
         ParameterText(parameterText)
     }
+}
+
+@Composable
+fun WarningDialog(
+    onDismiss: () -> Unit
+) {
+    AlertDialog(
+        onDismissRequest = {
+            onDismiss()
+        },
+        confirmButton = {
+            TextButton(
+                onClick = {
+                    onDismiss()
+                }
+            ) {
+                Text(stringResource(R.string.ok_button))
+            }
+        },
+        title = {
+            Text(stringResource(R.string.warnint_title))
+        },
+        text = {
+            Text(stringResource(R.string.warning_text))
+        },
+        icon = {
+            Icon(
+                Icons.Filled.Info,
+                null
+            )
+        }
+    )
 }

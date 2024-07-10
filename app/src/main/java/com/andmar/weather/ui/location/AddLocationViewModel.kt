@@ -12,8 +12,10 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import com.andmar.weather.rest.WeatherService
 import com.andmar.weather.rest.Location
 import com.andmar.weather.data.WeatherDataStore
@@ -31,10 +33,11 @@ class AddLocationViewModel(
     var addLocationUiState by mutableStateOf(AddLocationUiState())
         private set
     
-    fun updateAddLocationUiState(locationDetails: LocationDetails) {
+    fun updateAddLocationUiState(addLocationState: AddLocationUiState) {
         addLocationUiState = addLocationUiState.copy(
-            locationDetails = locationDetails,
-            isShowButton = showButton(locationDetails)
+            locationDetails = addLocationState.locationDetails,
+            isShowButton = showButton(addLocationState.locationDetails),
+            warningDialog = addLocationState.warningDialog
         )
     }
     
@@ -52,13 +55,21 @@ class AddLocationViewModel(
     }
     
     fun findLocation() = viewModelScope.launch {
-        locationListState = LocationListState(
-            weatherService.weatherApi.getLocation(
-                location = locationClient.getLocation(1000)
-                    .filterNotNull()
-                    .first()
+        val location = locationClient.getLocation(1000)
+            .filterNotNull()
+            .first()
+           
+        if(location == "Missing location permission") {
+            addLocationUiState = AddLocationUiState(
+                warningDialog = true
             )
-        )
+        } else {
+            locationListState = LocationListState(
+                weatherService.weatherApi.getLocation(
+                    location = location
+                )
+            )
+        }
     }
     
     fun saveLocationItem(location: Location) = viewModelScope.launch {
@@ -77,7 +88,8 @@ data class LocationListState(val locationList: List<Location> = emptyList())
 data class AddLocationUiState(
     val locationDetails: LocationDetails = LocationDetails(),
     val location: String = "",
-    val isShowButton: Boolean = false
+    val isShowButton: Boolean = false,
+    val warningDialog: Boolean = false
 )
 
 data class LocationDetails(

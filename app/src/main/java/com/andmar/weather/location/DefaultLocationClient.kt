@@ -22,8 +22,9 @@ class DefaultLocationClient(
     @SuppressLint("MissingPermission")
     override fun getLocation(interval: Long): Flow<String> {
         return callbackFlow {
+        
             if(!context.hasLocationPermission()) {
-                throw LocationClient.LocationException("Missing location permission")
+                launch { send("Missing location permission")}
             }
             
             val locationManager = context?.getSystemService(Context.LOCATION_SERVICE) as LocationManager
@@ -63,6 +64,9 @@ class DefaultLocationClient(
         return callbackFlow {
             client.lastLocation
                 .addOnSuccessListener { location: Location? ->
+                    if(!context.hasLocationPermission()) {
+                        launch { send("Missing location permission") }
+                    }
                     if(location != null) {
                         trySend("${location.latitude}, ${location.longitude}")
                     }

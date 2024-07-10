@@ -12,7 +12,9 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import com.andmar.weather.rest.WeatherService
 import com.andmar.weather.rest.Weather
 import com.andmar.weather.rest.Current
@@ -43,7 +45,7 @@ class WeatherViewModel(
         private set
     
     init {
-        getWeather()
+       // getWeather()
     }
     
     fun updateWeatherUiState(weatherState: WeatherUiState) {
@@ -52,13 +54,14 @@ class WeatherViewModel(
     
     fun getWeather() = viewModelScope.launch {
         val location: String? = weatherDataStore.getLocation.first()
-        
+        val lastLocation = locationClient.getLastLocation()
+            .filterNotNull()
+            .first()
+            
         weatherUiState = weatherUiState.copy(
             weather = weatherService.getWeather(
                 location = if(location as String == "") {
-                    locationClient.getLastLocation()
-                        .filterNotNull()
-                        .first()
+                    lastLocation
                 } else {
                     location
                 }

@@ -115,7 +115,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.collectLatest
 import com.andmar.weather.R
-import com.andmar.weather.WeatherTopBar
+import com.andmar.weather.WeatherTopBar 
+import com.andmar.weather.WarningDialog
 import com.andmar.weather.ui.AppViewModelProvider
 import com.andmar.weather.ui.navigate.WeatherDestination
 import com.andmar.weather.rest.Location
@@ -162,6 +163,18 @@ fun AddLocationScreen(
                 onNavBack()
             }
         )
+        
+        if(viewModel.addLocationUiState.warningDialog) {
+            WarningDialog(
+                onDismiss = {
+                    viewModel.updateAddLocationUiState(
+                        AddLocationUiState(
+                            warningDialog = false
+                        )
+                    )
+                }
+            )
+        }
     }
 }
 
@@ -170,7 +183,7 @@ fun AddBody(
     scaffoldPadding: PaddingValues,
     addLocationUiState: AddLocationUiState,
     locationList: List<Location>,
-    updateAddLocationUiState: (LocationDetails) -> Unit,
+    updateAddLocationUiState: (AddLocationUiState) -> Unit,
     onClickGetLocation: () -> Unit,
     onClickFindLocation: () -> Unit,
     onClickSaveLocation: (Location) -> Unit
@@ -190,7 +203,7 @@ fun AddBody(
             AddForm(
                 locationDetails = addLocationUiState.locationDetails,
                 updateAddLocationUiState = {
-                    updateAddLocationUiState(it)
+                    updateAddLocationUiState(addLocationUiState.copy(locationDetails = it))
                 }
             )    
             Button(

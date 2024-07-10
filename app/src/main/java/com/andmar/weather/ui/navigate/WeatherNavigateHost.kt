@@ -51,6 +51,9 @@ fun WeatherNavigateHost(
                 },
                 onNavDetails = {
                     navController.navigate(DetailsDestination.route)
+                },
+                onNavAdd = {
+                    navController.navigate(AddLocationDestination.route)
                 }
             )
         }

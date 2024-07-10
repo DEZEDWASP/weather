@@ -116,6 +116,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.collectLatest
 import com.andmar.weather.R
 import com.andmar.weather.WeatherTopBar
+import com.andmar.weather.WarningDialog
 import com.andmar.weather.TitleText
 import com.andmar.weather.ParameterText
 import com.andmar.weather.ParameterTextWithDivide
@@ -138,7 +139,8 @@ fun WeatherScreen(
     viewModel: WeatherViewModel = viewModel(factory = AppViewModelProvider.Factory),
     onNavSettings: () -> Unit,
     onNavLocation: () -> Unit,
-    onNavDetails: () -> Unit
+    onNavDetails: () -> Unit,
+    onNavAdd: () -> Unit
 ) {
 viewModel.getWeather()
     
@@ -158,13 +160,23 @@ viewModel.getWeather()
             )
         }
     ) { scaffoldPadding ->
-        WeatherBody(
-            scaffoldPadding = scaffoldPadding,
-            weather = viewModel.weatherUiState.weather,
-            onNavDetails = {
-                onNavDetails()
-            }
-        )
+    
+        if(viewModel.weatherUiState.weather.current.last_updated == "") {
+            LoadingWindow(
+                scaffoldPadding = scaffoldPadding,
+                onClick = {
+                    onNavAdd()
+                }
+            )
+        } else {
+            WeatherBody(
+                scaffoldPadding = scaffoldPadding,
+                weather = viewModel.weatherUiState.weather,
+                onNavDetails = {
+                    onNavDetails()
+                }
+            )
+        }
     }
 }
 
@@ -505,6 +517,46 @@ fun AlertCard(alert: AlertUi) {
                     alert.desc
                 )
             }
+        }
+    }
+}
+
+@Composable
+fun LoadingWindow(
+    scaffoldPadding: PaddingValues,
+    onClick: () -> Unit
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(scaffoldPadding),
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        LinearProgressIndicator(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(6.dp),
+            color = MaterialTheme.colorScheme.secondary
+        )
+        Spacer(modifier = Modifier.height(40.dp))
+        Text(
+            text = stringResource(R.string.if_not_location_permission),
+            modifier = Modifier.padding(10.dp)
+        )
+        Text(
+            text = stringResource(R.string.if_you_dont_location_permission),
+            modifier = Modifier.padding(10.dp)
+        )
+        Button(
+            onClick = {
+                onClick()
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp)
+        ) {
+            Text(stringResource(R.string.write_location_button))
         }
     }
 }
