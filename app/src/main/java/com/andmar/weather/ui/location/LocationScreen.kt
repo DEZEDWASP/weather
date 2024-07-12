@@ -138,7 +138,6 @@ val locationItemList = viewModel.locationItemListState.collectAsState()
 
     Scaffold(
         topBar = {
-        
             WeatherTopBar(
                 title = stringResource(R.string.location_screen_title),
                 showActions = LocationDestination.showActions,

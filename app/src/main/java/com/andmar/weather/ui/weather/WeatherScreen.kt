@@ -113,6 +113,7 @@ import androidx.compose.ui.text.font.FontWeight
 import coil.compose.AsyncImage
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import com.andmar.weather.R
 import com.andmar.weather.WeatherTopBar
@@ -137,6 +138,7 @@ object WeatherScreenDestination: WeatherDestination {
 @Composable
 fun WeatherScreen(
     viewModel: WeatherViewModel = viewModel(factory = AppViewModelProvider.Factory),
+    onFinish: () -> Unit,
     onNavSettings: () -> Unit,
     onNavLocation: () -> Unit,
     onNavDetails: () -> Unit,
@@ -160,12 +162,22 @@ viewModel.getWeather()
             )
         }
     ) { scaffoldPadding ->
-    
         if(viewModel.weatherUiState.weather.current.last_updated == "") {
-            LoadingWindow(
+            LoadingScreen(
                 scaffoldPadding = scaffoldPadding,
-                onClick = {
-                    onNavAdd()
+                content = {
+                    if(viewModel.weatherUiState.isWarningDialog) {
+                        WarningDialog(
+                            onDismiss = {
+                                onFinish()
+                                viewModel.updateWeatherUiState(
+                                    viewModel.weatherUiState.copy(
+                                        isWarningDialog = false
+                                    )
+                                )
+                            }
+                        )
+                    }
                 }
             )
         } else {
@@ -187,7 +199,6 @@ fun WeatherBody(
     weather: WeatherUi,
     onNavDetails: () -> Unit
 ) {
-
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -522,42 +533,23 @@ fun AlertCard(alert: AlertUi) {
 }
 
 @Composable
-fun LoadingWindow(
+fun LoadingScreen(
     scaffoldPadding: PaddingValues,
-    onClick: () -> Unit
+    content: @Composable () -> Unit
 ) {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(scaffoldPadding),
-        verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         LinearProgressIndicator(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(6.dp),
-            color = MaterialTheme.colorScheme.secondary
+            color = MaterialTheme.colorScheme.primary
         )
-        Spacer(modifier = Modifier.height(40.dp))
-        Text(
-            text = stringResource(R.string.if_not_location_permission),
-            modifier = Modifier.padding(10.dp)
-        )
-        Text(
-            text = stringResource(R.string.if_you_dont_location_permission),
-            modifier = Modifier.padding(10.dp)
-        )
-        Button(
-            onClick = {
-                onClick()
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp)
-        ) {
-            Text(stringResource(R.string.write_location_button))
-        }
+        content()
     }
 }
 

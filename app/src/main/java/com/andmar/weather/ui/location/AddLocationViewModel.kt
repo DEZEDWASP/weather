@@ -14,6 +14,7 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import com.andmar.weather.rest.WeatherService
@@ -37,7 +38,7 @@ class AddLocationViewModel(
         addLocationUiState = addLocationUiState.copy(
             locationDetails = addLocationState.locationDetails,
             isShowButton = showButton(addLocationState.locationDetails),
-            warningDialog = addLocationState.warningDialog
+            isWarningDialog = addLocationState.isWarningDialog
         )
     }
     
@@ -56,12 +57,17 @@ class AddLocationViewModel(
     
     fun findLocation() = viewModelScope.launch {
         val location = locationClient.getLocation(1000)
+            .catch { e ->
+                if(e.message == "Missing location permission") {
+                    Log.i("exception", "${e.message}")
+                } 
+            }
             .filterNotNull()
             .first()
-           
+            
         if(location == "Missing location permission") {
             addLocationUiState = AddLocationUiState(
-                warningDialog = true
+                isWarningDialog = true
             )
         } else {
             locationListState = LocationListState(
@@ -89,7 +95,7 @@ data class AddLocationUiState(
     val locationDetails: LocationDetails = LocationDetails(),
     val location: String = "",
     val isShowButton: Boolean = false,
-    val warningDialog: Boolean = false
+    val isWarningDialog: Boolean = false
 )
 
 data class LocationDetails(

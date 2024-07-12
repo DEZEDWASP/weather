@@ -48,9 +48,6 @@ class LocationViewModel(
                 started = SharingStarted.WhileSubscribed(5_000L),
                 initialValue = LocationItemListState()
             )
-            
-    
-    
     
     fun deleteLocation(locationItem: LocationItem) = viewModelScope.launch {
         weatherRepository.deleteLocationItem(locationItem)

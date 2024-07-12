@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import com.andmar.weather.rest.WeatherService
@@ -44,10 +45,6 @@ class WeatherViewModel(
     var weatherUiState by mutableStateOf(WeatherUiState())
         private set
     
-    init {
-       // getWeather()
-    }
-    
     fun updateWeatherUiState(weatherState: WeatherUiState) {
         weatherUiState = weatherState
     }
@@ -58,23 +55,38 @@ class WeatherViewModel(
             .filterNotNull()
             .first()
             
-        weatherUiState = weatherUiState.copy(
-            weather = weatherService.getWeather(
-                location = if(location as String == "") {
-                    lastLocation
-                } else {
-                    location
-                }
-            ).toWeatherUi(weatherDataStore.getSettings
-                .filterNotNull()
-                .first()
+            /*
+            .catch { e ->
+                if(e.message == "Missing location permission") {
+                    Log.i("exception", "${e.message}")
+                } 
+            }
+            */
+            
+        if(lastLocation == "Missing location permission") {
+            weatherUiState = WeatherUiState(
+                isWarningDialog = true
             )
-        )
+        } else {
+            weatherUiState = weatherUiState.copy(
+                weather = weatherService.getWeather(
+                    location = if(location as String !== "") {
+                        location as String
+                    } else {
+                        lastLocation
+                    }
+                ).toWeatherUi(weatherDataStore.getSettings
+                    .filterNotNull()
+                    .first()
+                )
+            )
+        }
     }
 }
 
 data class WeatherUiState(
-    val weather: WeatherUi = WeatherUi()
+    val weather: WeatherUi = WeatherUi(),
+    val isWarningDialog: Boolean = false
 )
 
 data class WeatherUi(

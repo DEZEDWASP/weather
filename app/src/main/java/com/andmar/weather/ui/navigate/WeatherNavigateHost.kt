@@ -30,7 +30,8 @@ import com.andmar.weather.ui.settings.SettingsScreen
 
 @Composable
 fun WeatherNavigateHost(
-    navController: NavHostController = rememberNavController()
+    navController: NavHostController = rememberNavController(),
+    onFinish: () -> Unit
 ) {
 
     NavHost(
@@ -43,6 +44,9 @@ fun WeatherNavigateHost(
             route = WeatherScreenDestination.route
         ) {
             WeatherScreen(
+                onFinish = {
+                    onFinish()
+                },
                 onNavSettings = {
                     navController.navigate(SettingsDestination.route)
                 },

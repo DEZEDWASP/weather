@@ -1,5 +1,6 @@
 package com.andmar.weather.location
 
+import android.util.Log
 import android.os.Looper
 import android.annotation.SuppressLint
 import android.content.Context
@@ -25,6 +26,7 @@ class DefaultLocationClient(
         
             if(!context.hasLocationPermission()) {
                 launch { send("Missing location permission")}
+                //throw LocationClient.LocationException("Missing location permission")
             }
             
             val locationManager = context?.getSystemService(Context.LOCATION_SERVICE) as LocationManager
@@ -60,16 +62,21 @@ class DefaultLocationClient(
         }
     }
     
+    @SuppressLint("MissingPermission")
     override fun getLastLocation(): Flow<String> {
         return callbackFlow {
+        
+            if(!context.hasLocationPermission()) {
+                launch { send("Missing location permission") }
+               // throw LocationClient.LocationException("Missing location permission")
+            }   
+                    
             client.lastLocation
                 .addOnSuccessListener { location: Location? ->
-                    if(!context.hasLocationPermission()) {
-                        launch { send("Missing location permission") }
-                    }
-                    if(location != null) {
-                        trySend("${location.latitude}, ${location.longitude}")
-                    }
+                     
+                if(location != null) {
+                    trySend("${location.latitude}, ${location.longitude}")
+                }
             }
             awaitClose {}
         }

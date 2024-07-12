@@ -164,12 +164,12 @@ fun AddLocationScreen(
             }
         )
         
-        if(viewModel.addLocationUiState.warningDialog) {
+        if(viewModel.addLocationUiState.isWarningDialog) {
             WarningDialog(
                 onDismiss = {
                     viewModel.updateAddLocationUiState(
                         AddLocationUiState(
-                            warningDialog = false
+                            isWarningDialog = false
                         )
                     )
                 }

@@ -119,11 +119,15 @@ import com.andmar.weather.R
 import com.andmar.weather.ui.AppViewModelProvider
 import com.andmar.weather.ui.navigate.WeatherDestination
 import com.andmar.weather.ui.navigate.WeatherNavigateHost
-import com.andmar.weather.location.hasLocationPermission
+
 
 @Composable
-fun WeatherApp() {
-    WeatherNavigateHost()
+fun WeatherApp(onFinish: () -> Unit) {
+    WeatherNavigateHost(
+        onFinish = {
+            onFinish()
+        }
+    )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

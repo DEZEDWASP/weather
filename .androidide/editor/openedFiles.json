@@ -1,47 +1,77 @@
 {
   "allFiles": [
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/ui/weather/WeatherScreen.kt",
+      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/ui/location/AddLocationViewModel.kt",
       "selection": {
         "end": {
-          "column": 1,
-          "index": 15082,
-          "line": 404
+          "column": 20,
+          "index": 2125,
+          "line": 57
         },
         "start": {
-          "column": 1,
-          "index": 15082,
-          "line": 404
+          "column": 20,
+          "index": 2125,
+          "line": 57
         }
       }
     },
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/res/values/strings.xml",
+      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/location/DefaultLocationClient.kt",
       "selection": {
         "end": {
-          "column": 30,
-          "index": 3618,
-          "line": 86
+          "column": 18,
+          "index": 1027,
+          "line": 28
         },
         "start": {
           "column": 18,
-          "index": 3606,
-          "line": 86
+          "index": 1027,
+          "line": 28
         }
       }
     },
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/ui/location/AddLocationScreen.kt",
+      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/ui/weather/WeatherScreen.kt",
+      "selection": {
+        "end": {
+          "column": 41,
+          "index": 7674,
+          "line": 171
+        },
+        "start": {
+          "column": 41,
+          "index": 7674,
+          "line": 171
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/ui/weather/WeatherViewModel.kt",
       "selection": {
         "end": {
           "column": 0,
-          "index": 0,
-          "line": 0
+          "index": 2957,
+          "line": 85
         },
         "start": {
           "column": 0,
-          "index": 0,
-          "line": 0
+          "index": 2957,
+          "line": 85
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/MainActivity.kt",
+      "selection": {
+        "end": {
+          "column": 29,
+          "index": 1509,
+          "line": 39
+        },
+        "start": {
+          "column": 29,
+          "index": 1509,
+          "line": 39
         }
       }
     },
@@ -49,32 +79,32 @@
       "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/WeatherApp.kt",
       "selection": {
         "end": {
-          "column": 16,
-          "index": 9323,
-          "line": 284
+          "column": 10,
+          "index": 5978,
+          "line": 127
         },
         "start": {
-          "column": 16,
-          "index": 9323,
-          "line": 284
+          "column": 10,
+          "index": 5978,
+          "line": 127
         }
       }
     },
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/ui/location/LocationScreen.kt",
+      "file": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/ui/navigate/WeatherNavigateHost.kt",
       "selection": {
         "end": {
-          "column": 0,
-          "index": 0,
-          "line": 0
+          "column": 18,
+          "index": 1885,
+          "line": 48
         },
         "start": {
-          "column": 0,
-          "index": 0,
-          "line": 0
+          "column": 16,
+          "index": 1823,
+          "line": 46
         }
       }
     }
   ],
-  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/ui/location/LocationScreen.kt"
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/Погода/app/src/main/java/com/andmar/weather/MainActivity.kt"
 }

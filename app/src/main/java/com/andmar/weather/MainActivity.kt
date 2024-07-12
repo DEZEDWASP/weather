@@ -2,6 +2,9 @@ package com.andmar.weather
 
 import android.Manifest
 import android.os.Bundle
+import android.content.Intent
+import android.net.Uri
+import android.provider.Settings
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -17,6 +20,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.andmar.weather.ui.theme.MyComposeApplicationTheme
 import androidx.core.app.ActivityCompat
+import com.andmar.weather.location.hasLocationPermission
+
 
 var MY_PERMISSION_REQUEST_CODE = 0
 
@@ -29,18 +34,25 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background) {
-                    WeatherApp()
-                    
-                    ActivityCompat.requestPermissions(
-                        this,
-                        arrayOf(
-                        Manifest.permission.ACCESS_FINE_LOCATION,
-                        Manifest.permission.ACCESS_COARSE_LOCATION,
-                        ),
-                        MY_PERMISSION_REQUEST_CODE
-                   )  
+                    getPermission()
+                    WeatherApp(
+                        onFinish = {
+                            finish()
+                        }
+                    )
                 }
             }
         }
+    }
+    
+    private fun getPermission() {
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION,
+            ),
+            MY_PERMISSION_REQUEST_CODE
+       ) 
     }
 }
